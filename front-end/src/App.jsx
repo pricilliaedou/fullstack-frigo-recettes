@@ -2,7 +2,7 @@ import { useState } from "react";
 import Loader from "./composants/loader/Loader";
 import Header from "./composants/Header";
 import Produits from "./composants/Produits";
-
+import { Recettes } from "./composants/Recettes";
 import "./index.css";
 
 const App = () => {
@@ -14,10 +14,10 @@ const App = () => {
       {isLoading && <Loader />} {/* Le loader est affiché au démarrage */}
       <Header />
       <main>
-        <section className='main-left'>
+        <section>
           <Produits stopLoading={stopLoading} />
+          <Recettes stopLoading={stopLoading} />
         </section>
-        <section className='main-right'></section>
       </main>
     </div>
   );

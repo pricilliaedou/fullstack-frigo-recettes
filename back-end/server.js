@@ -49,6 +49,28 @@ app.get("/produits", (req, res) => {
   }
 });
 
+app.get("/recettes", (req, res) => {
+  const sql = "SELECT * FROM recettes";
+
+  try {
+    db.query(sql, (err, result) => {
+      if (!err) {
+        console.log("Opération réussie 🔥");
+        return res.json(result); // Requête réussie, réponse envoyée en JSON
+      }
+
+      // Si une erreur survient, elle est levée pour être capturée par le bloc catch
+      //on peut faire throw err; // seulement on ne pourra pas personnalisé le msg de l'erreur
+      throw new Error(
+        "Erreur lors de l'exécution de la requête 😥: " + err.message
+      );
+    });
+  } catch (error) {
+    console.error("Erreur lors de la récupération des produits:", error); // Utilisation de `error` et non `err`
+    res.status(500).send("Erreur lors de la récupération des produits");
+  }
+});
+
 app.all("*", function (req, res) {
   res.status(404).send("Page not found 😞");
 });

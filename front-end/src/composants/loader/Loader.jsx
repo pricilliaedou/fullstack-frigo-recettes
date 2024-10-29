@@ -4,7 +4,7 @@ import "./loader.css";
 const Loader = () => {
   return (
     <div className='loader'>
-      <h1> cooking in progress...</h1>
+      <h1 className='load'> cooking in progress...</h1>
       <div id='cooking'>
         <div className='bubble'></div>
         <div className='bubble'></div>

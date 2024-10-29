@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-h1 {
+.load {
   position: relative;
   margin: 0 auto;
   top: 25vh;
